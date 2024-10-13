@@ -1,5 +1,5 @@
-const calendarBody = document.getElementById("calendar-body");
-const monthYear = document.getElementById("month-year");
+const calendarBody = document.querySelector(".calendar-body");
+const monthYear = document.getElementById("current-date");
 
 let date = new Date();
 let dateDay = date.getDate()
