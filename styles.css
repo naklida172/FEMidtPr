@@ -41,3 +41,11 @@ body {
         border-radius: 50%;
         background-color: #f0f0f0;
     }
+
+.calendar-footer {
+    margin-top: 20px;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

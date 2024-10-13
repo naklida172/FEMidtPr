@@ -85,3 +85,15 @@ for (let i = 1; i <= daysInMonth; i++) {
     dayDiv.textContent = i;
     calendarBody.appendChild(dayDiv);
 }
+
+function updateClock() {
+    let clockElement = document.getElementById('clock');
+    let now = new Date();
+    let hour = now.getHours().toString().padStart(2, '0');
+    let minute = now.getMinutes().toString().padStart(2, '0');
+    let second = now.getSeconds().toString().padStart(2, '0');
+    clockElement.textContent = `${hour}:${minute}:${second}`;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
