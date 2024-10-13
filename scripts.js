@@ -2,6 +2,7 @@ const calendarBody = document.getElementById("calendar-body");
 const monthYear = document.getElementById("month-year");
 
 let date = new Date();
+let dateDay = date.getDate()
 let month = date.getMonth();
 let year = date.getFullYear();
 
@@ -29,7 +30,31 @@ const dayNames = [
     "Sat"
 ];
 
-monthYear.textContent = `${monthNames[month]} ${year}`;
+const fullDayNames = [
+    "Sunday",
+    "Monday",
+    "Tueday",
+    "Wedday",
+    "Thuday",
+    "Friday",
+    "Satday"
+];
+
+let date_ending = "th";
+
+if (dateDay.toString().endsWith('1')) {
+    date_ending = "st";
+}
+else if (dateDay.toString().endsWith('2')) {
+    date_ending = "nd";
+}
+else if (dateDay.toString().endsWith('3')) {
+    date_ending = "rd";
+}
+
+monthYear.innerHTML = `${fullDayNames[date.getDay()]}-${dateDay}${date_ending}
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+${monthNames[month]} ${year}`;
 
 function getDaysInMonth(month, year) {
     return new Date(year, month + 1, 0).getDate();

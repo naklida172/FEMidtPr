@@ -18,7 +18,9 @@ body {
 .calendar-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
 }
 
     .calendar-header div {
@@ -29,6 +31,9 @@ body {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
 }
 
     .calendar-body div {
