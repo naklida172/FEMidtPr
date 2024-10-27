@@ -19,14 +19,29 @@ body {
 .calendar-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
 }
 
+    .calendar-header .date-day {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        margin-right: 20px;
+    }
+
+    .calendar-header .month-year {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+
     .calendar-header div {
         font-size: 1.2em;
     }
+
 
 .calendar-body {
     display: grid;

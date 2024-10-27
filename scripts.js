@@ -40,21 +40,19 @@ const fullDayNames = [
     "Satday"
 ];
 
-let date_ending = "th";
+let dateEnding = "th";
 
 if (dateDay.toString().endsWith('1')) {
-    date_ending = "st";
+    dateEnding = "st";
 }
 else if (dateDay.toString().endsWith('2')) {
-    date_ending = "nd";
+    dateEnding = "nd";
 }
 else if (dateDay.toString().endsWith('3')) {
-    date_ending = "rd";
+    dateEnding = "rd";
 }
-
-monthYear.innerHTML = `${fullDayNames[date.getDay()]}-${dateDay}${date_ending}
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-${monthNames[month]} ${year}`;
+document.getElementById('date-day').innerHTML = `${fullDayNames[date.getDay()]}-${dateDay}${dateEnding}`;
+document.getElementById('month-year').innerHTML = `${monthNames[date.getMonth()]} ${date.getFullYear()}`
 
 function getDaysInMonth(month, year) {
     return new Date(year, month + 1, 0).getDate();
@@ -73,9 +71,10 @@ for (let i = 0; i <= 6; i++) {
 let firstDateDay = getDatesWeekDay(month, year);
 
 for (let i = 0; i < firstDateDay; i++) {
-        let dayDiv = document.createElement("div");
-        dayDiv.textContent = new Date(year, month, 1-firstDateDay+i).getDate();
-        calendarBody.appendChild(dayDiv);
+    let dayDiv = document.createElement("div");
+    dayDiv.textContent = new Date(year, month, 1-firstDateDay+i).getDate();
+    dayDiv.style.color = 'grey';
+    calendarBody.appendChild(dayDiv);
 }
 
 let daysInMonth = getDaysInMonth(month, year);
@@ -94,7 +93,7 @@ function updateClock() {
     let amPm = hour >= 12 ? 'pm' : 'am';
     hour = hour % 12;
     if (hour == 0) {hour = 12}
-    const timeString = `${hour}:${minute}:${amPm}`;
+    const timeString = `${hour}:${minute}${amPm}`;
     timeData.textContent = timeString;
 }
 
