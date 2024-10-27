@@ -87,13 +87,30 @@ for (let i = 1; i <= daysInMonth; i++) {
 }
 
 function updateClock() {
-    let clockElement = document.getElementById('clock');
+    let timeData = document.getElementById('clock');
     let now = new Date();
-    let hour = now.getHours().toString().padStart(2, '0');
+    let hour = now.getHours();
     let minute = now.getMinutes().toString().padStart(2, '0');
-    let second = now.getSeconds().toString().padStart(2, '0');
-    clockElement.textContent = `${hour}:${minute}:${second}`;
+    let amPm = hour >= 12 ? 'pm' : 'am';
+    hour = hour % 12;
+    if (hour == 0) {hour = 12}
+    const timeString = `${hour}:${minute}:${amPm}`;
+    timeData.textContent = timeString;
 }
 
 setInterval(updateClock, 1000);
 updateClock();
+
+const temperatureData = document.getElementById('temperature');
+
+async function fetchTemperature() {
+    const apiKey = '95c810fc5ab7d977dbc6fc0f14d5fe31';
+    const city = 'Bishkek';
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`);
+    const data = await response.json();
+    const temp = data.main.temp.toFixed(1);
+    temperatureData.innerHTML = `${temp}&deg;C`;
+}
+
+fetchTemperature();
+setInterval(fetchTemperature, 60000);
