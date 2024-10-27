@@ -28,7 +28,7 @@ body {
     .calendar-header .date-day {
         flex: 1;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         margin-right: 20px;
     }
 
