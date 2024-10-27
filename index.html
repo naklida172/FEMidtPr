@@ -7,47 +7,6 @@
     <title>Calendar</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css" />
-    <style>
-        body {
-            background-color: #87CEEB;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .calendar {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            width: 300px;
-        }
-
-        .calendar-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-            .calendar-header div {
-                font-size: 1.2em;
-            }
-
-        .calendar-body {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 10px;
-        }
-
-            .calendar-body div {
-                padding: 10px;
-                border-radius: 50%;
-                background-color: #f0f0f0;
-            }
-    </style>
 </head>
 <body>
     <body>
@@ -57,5 +16,6 @@
             </div>
             <div class="calendar-body" id="calendar-body"></div>
         </div>
+        <script src="./scripts.js"></script>
     </body>
 </html>
