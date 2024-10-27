@@ -34,6 +34,24 @@ monthYear.textContent = `${monthNames[month]} ${year}`;
 function getDaysInMonth(month, year) {
     return new Date(year, month + 1, 0).getDate();
 }
+function getDatesWeekDay(month, year) {
+    return new Date(year, month, 1).getDay();
+}
+
+
+for (let i = 0; i <= 6; i++) {
+    let dayDiv = document.createElement("div");
+    dayDiv.textContent = dayNames[i];
+    calendarBody.appendChild(dayDiv);
+}
+
+let firstDateDay = getDatesWeekDay(month, year);
+
+for (let i = 0; i < firstDateDay; i++) {
+        let dayDiv = document.createElement("div");
+        dayDiv.textContent = new Date(year, month, 1-firstDateDay+i).getDate();
+        calendarBody.appendChild(dayDiv);
+}
 
 let daysInMonth = getDaysInMonth(month, year);
 
